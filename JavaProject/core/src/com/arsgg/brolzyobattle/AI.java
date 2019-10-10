@@ -43,7 +43,7 @@ public class AI{
                     ultimorand=11;
         }
 
-        if(completamenteFermo()) versoAvversario();
+        if(completamenteFermo() && (r.nextInt(10)<4)) versoAvversario();
 
 
         if(timer>=tempoprossimaazione){
@@ -57,7 +57,7 @@ public class AI{
 
             else  if(ultimorand>=11 && ultimorand<=19) versoAvversario();
             else if(ultimorand>=20 && ultimorand<=25) cambiaDirezione();
-            else {azzera(); tempoprossimaazione=r.nextInt(20);}
+            else {azzera(); tempoprossimaazione=r.nextInt(22);}
 
             if(Battle.p!=null) versoPozione();
             if(ultimorand!=10) spariAttuali=0;
@@ -170,7 +170,7 @@ public class AI{
             statoTasti[left]=true;
             statoTasti[right]=false;
         }
-        else if(me.getX()>avversario.getX())
+        else
         {
             statoTasti[right]=true;
             statoTasti[left]=false;
@@ -181,7 +181,7 @@ public class AI{
             statoTasti[up]=true;
             statoTasti[down]=false;
         }
-        else if(me.getY()-avversario.getY()>gap)
+        else 
         {
             statoTasti[down]=true;
             statoTasti[up]=false;
